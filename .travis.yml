@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t chithrabiz/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true chithrabiz/docker-react npm run test
+  
